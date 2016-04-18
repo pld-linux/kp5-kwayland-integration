@@ -15,6 +15,7 @@ BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	kf5-kidletime-devel
 BuildRequires:	kf5-kwindowsystem-devel
+BuildRequires:	kp5-kwayland-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
