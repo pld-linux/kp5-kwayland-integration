@@ -1,21 +1,22 @@
-%define		kdeplasmaver	5.14.5
+%define		kdeplasmaver	5.15.3
 %define		qtver		5.9.0
 %define		kpname		kwayland-integration
 
 Summary:	Provides integration plugins for various KDE frameworks for the wayland windowing system
 Name:		kp5-%{kpname}
-Version:	5.14.5
+Version:	5.15.3
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	29dcdb9bf1f6f360f5643fbe3c69cfe8
+# Source0-md5:	f5ceb5dbfcf2d3f590b9115c446b35df
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	kf5-kidletime-devel
 BuildRequires:	kf5-kwayland-devel
 BuildRequires:	kf5-kwindowsystem-devel
+BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -32,16 +33,14 @@ wayland windowing system.
 %build
 install -d build
 cd build
-%cmake \
+%cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	../
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%{__make} -C build/ install \
-        DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %clean
 rm -rf $RPM_BUILD_ROOT
