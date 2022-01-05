@@ -1,15 +1,15 @@
-%define		kdeplasmaver	5.23.4
+%define		kdeplasmaver	5.23.5
 %define		qtver		5.15.2
 %define		kpname		kwayland-integration
 
 Summary:	Provides integration plugins for various KDE frameworks for the wayland windowing system
 Name:		kp5-%{kpname}
-Version:	5.23.4
+Version:	5.23.5
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	ccadb3775b62e6c79ae876d36e112d2d
+# Source0-md5:	49fb0dd8d8f3135d38b4f38379a22875
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5WaylandClient-devel >= %{qtver}
