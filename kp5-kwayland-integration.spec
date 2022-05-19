@@ -8,7 +8,7 @@
 Summary:	Provides integration plugins for various KDE frameworks for the wayland windowing system
 Name:		kp5-%{kpname}
 Version:	5.24.5
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -59,6 +59,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{_libdir}/qt5/plugins/kf5/org.kde.kidletime.platforms
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/org.kde.kidletime.platforms/KF5IdleTimeKWaylandPlugin.so
+# shouldn't the two following dirs be provided by kf5-kguiaddons?
+%dir %{_libdir}/qt5/plugins/kf5/kguiaddons
+%dir %{_libdir}/qt5/plugins/kf5/kguiaddons/kmodifierkey
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kguiaddons/kmodifierkey/kmodifierkey_wayland.so
 %{_datadir}/qlogging-categories5/kwindowsystem.kwayland.categories
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kwindowsystem/KF5WindowSystemKWaylandPlugin.so
