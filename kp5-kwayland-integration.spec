@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.24.5
+%define		kdeplasmaver	5.25.0
 %define		qtver		5.15.2
 %define		kpname		kwayland-integration
 
 Summary:	Provides integration plugins for various KDE frameworks for the wayland windowing system
 Name:		kp5-%{kpname}
-Version:	5.24.5
-Release:	2
+Version:	5.25.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	aae5d820d1ecd19301a23cb672c9a45a
+Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
+# Source0-md5:	88643270ae9d2ca5d51fbd6eee812dea
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5WaylandClient-devel >= %{qtver}
@@ -59,9 +59,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{_libdir}/qt5/plugins/kf5/org.kde.kidletime.platforms
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/org.kde.kidletime.platforms/KF5IdleTimeKWaylandPlugin.so
-# shouldn't the two following dirs be provided by kf5-kguiaddons?
-%dir %{_libdir}/qt5/plugins/kf5/kguiaddons
-%dir %{_libdir}/qt5/plugins/kf5/kguiaddons/kmodifierkey
-%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kguiaddons/kmodifierkey/kmodifierkey_wayland.so
 %{_datadir}/qlogging-categories5/kwindowsystem.kwayland.categories
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kwindowsystem/KF5WindowSystemKWaylandPlugin.so
